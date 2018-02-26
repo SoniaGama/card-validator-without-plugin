@@ -2,7 +2,10 @@
 
 **Validamos que el campo del nombre, CVV, fecha de vencimiento y numero de tarjeta no este vacio y que conicida con el formato que se necesita con HTML**
 
+### Referencias:
+
 [MDN](https://developer.mozilla.org/es/docs/Learn/HTML/Forms/Validacion_formulario_datos)
+
 [Google](https://developers.google.com/web/fundamentals/design-and-ux/input/forms/?hl=es)
 
 
@@ -33,8 +36,3 @@
 - Si el residuo es igual a 0 se agregamos la clase .success al los inputs
 
 - Si el residuo es diferente a 0 agregamos la clase .error a los inputs
-
-
-
-
-
