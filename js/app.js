@@ -1,35 +1,30 @@
 const validateAll = e => {
     e.preventDefault();
     const form = document.querySelector("form");
-    const formArray = Array.from(form);
+    const formArray = Array.from(form); // convertimos nuestro form a un array
 
+    // extraemos los valores del formulario
+    const name = formArray[0].value;
+    const card = formArray[1].value;
+    const dateExpiration = formArray[2].value;
+    const cvv = formArray[3].value;
 
-    // formArray[1].value
-
-    if (validateCard(formArray[1].value)) {
-        // console.log('tarj valida');
-        // document.getElementById('pay').disabled = false;
+    // llamamos a la función de validar tarjeta y le pasamos de parametro el numero de tarjeta
+    if (validateCard(card)) {
+        console.log('tarj valida');        
     } else {
-        // console.log('tarj invalida');
-
+        console.log('tarj invalida');
+        
     }
 
     formArray.map(element => element.value = ''); // limpiamos el formulario
 
-    // validateName(formArray[0].value)
-    // validateCard(formArray[1].value);
-    // validateDateExpiration(formArray[2].value);
-    // validateCvv(formArray[3].value);
 
 }
 
 const validateCard = (numberCard) => {
-
-    // 4183394090189505  
-    // 5059810904933814
-    const cardArray = Array.from(numberCard).reverse();
+    const cardArray = Array.from(numberCard).reverse(); //
     let newCardArray = cardArray.map((element, index) => {
-
         if (index % 2 !== 0) {
             let numberTwo = element * 2;
             let numberTwo10;
@@ -37,25 +32,19 @@ const validateCard = (numberCard) => {
                 numberTwo10 = numberTwo.toString().split('');
                 numberTwo10 = numberTwo - 10 + 1;
                 return numberTwo10;
-                // console.log(numberTwo10);                
-            }else{
+            } else {
                 return numberTwo;
-                // console.log(numberTwo);                
-              
             }
-            // console.log(numberTwo10, numberTwo);
-
-            return numberTwo, numberTwo10;
         } else {
-            // console.log(element);            
             return parseInt(element);
         }
-    });
-    // console.log(newCardArray);
-    // return false;
-
-    // return newCardArray
-
+    }).reduce((previous, current) => previous + current);
+    console.log(newCardArray);
+    if (newCardArray % 10 === 0) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 
