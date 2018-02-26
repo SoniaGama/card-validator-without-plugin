@@ -3,7 +3,7 @@
 **Validamos que el campo del nombre, CVV, fecha de vencimiento y numero de tarjeta no este vacio y que conicida con el formato que se necesita con HTML**
 
 [MDN](https://developer.mozilla.org/es/docs/Learn/HTML/Forms/Validacion_formulario_datos)
-[MDN](https://developers.google.com/web/fundamentals/design-and-ux/input/forms/?hl=es)
+[Google](https://developers.google.com/web/fundamentals/design-and-ux/input/forms/?hl=es)
 
 
 **Validamos el número de tarjeta con la implementación del algoritmo de Luhn**
