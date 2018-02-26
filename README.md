@@ -1,10 +1,10 @@
-#Validación de formulario para una tarjeta de crédito
+# Validación de formulario para una tarjeta de crédito
 
 **Validamos que el campo del nombre, CVV, fecha de vencimiento y numero de tarjeta no este vacio y que conicida con el formato que se necesita con HTML**
 
 **Validamos el número de tarjeta con la implementación del algoritmo de Luhn**
 
-##Pseudocódigo algoritmo Luhn
+## Pseudocódigo algoritmo Luhn
 
 - Pedir el numero de tarjeta por medio de un form-----
 
