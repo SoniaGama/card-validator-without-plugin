@@ -24,8 +24,17 @@
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="name" name="name" type="text" class="validate" required pattern="[A-Za-z]{4,16}" title="Se espera tu Nombre Apellido">
-                       <!-- falta corregir que acepte un espacio !!!!!!!!!!!!!!!!!!! -->
+                        <!-- La clase validate de materilize pinta de rojo el borde del input si el dato ingresado no es el que se espera -->
+                        <input id="name" name="name" type="text" class="validate" required pattern="([A-ZÑÁÉÍÓÚÜ]{1}[a-zñáéíóúü]{1,30}[\s]*)+" title="Se espera tu Nombre Apellido Apellido">
+                        <!-- 
+                            Validando el formato del nombre usando una expresión regular:
+
+                         [A-ZÑÁÉÍÓÚÜ]{1} = Nombre y Apellidos deben iniciar con mayuscula.
+                         [a-zñáéíóúü]{1,24} = Cada palabra debe continuar con con una miniscula almenos 1 ves asta 30 caracteres.
+                         [\s]* = permite espacios en blanco tabulaciones etc muchas o ninguna vez.
+                         (expresición-completa)+ signo de + al final permite que se repita perimitiendo los mismos parametros para nombre y apellidos. -->
+
+                         
                         <label for="name">Nombre completo</label>
                     </div>
                 </div>
@@ -33,6 +42,8 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="cn" name="cn" type="text" class="validate" required pattern="[0-9]{16}" title="Se esperan 16 numeros">
+                        <!-- restringimos los caracteres aceptados y la longitud, 
+                         pattern="[0-9]{16}" acepta 16 numeros del 0 al 9-->
                         <label for="cn">Número de tarjeta</label>
                         <!-- validaciòn con algoritmo -->
                     </div>
@@ -42,15 +53,16 @@
                     <h6 class="col s3">Fecha de vencimiento:</h6>
                     <div class="input-field col s6">
                         <input class="validate" id="exp" type="month" name="exp" min="2018-02" max="2028-02" required>
-                        <!-- <label for="">Fecha de vencimiento</label> -->
+                        <!-- Restringe la selección en el input month a 10 años -->
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s3">
                         <input id="cvv" name="cvv" type="text" class="validate" required pattern="[0-9]{3}" title="Se esperan 3 números">
+                        <!-- restringe los caracteres de 0 a 9 y solo a tres digitos -->
                         <label for="cvv">cvv</label>
-                        <!--que no sea string validar que sean tres digitos, que no sea menor a 0-->
+                       
                     </div>
 
                 </div>
@@ -63,8 +75,11 @@
     </section>
     <script src="js/vendors/jquery-3.3.1.min.js"></script>
     <script src="js/vendors/materialize.min.js"></script>
-    <script src="js/materialize.js"></script>
     <script src="js/app.js"></script>
+
+    <!-- Referencias para validar formularios:
+     https://developer.mozilla.org/es/docs/Learn/HTML/Forms/Validacion_formulario_datos 
+     https://developers.google.com/web/fundamentals/design-and-ux/input/forms/?hl=es-->
 </body>
 
 </html>
